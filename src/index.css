@@ -1,0 +1,10 @@
+.App {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1230px;
+    min-height: 100vh;
+
+    padding: 0 15px;
+}

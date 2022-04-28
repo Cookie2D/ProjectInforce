@@ -1,0 +1,23 @@
+.card-container  {
+    max-width: 45%;
+    min-width: 300px;
+    background: #f2f2f2;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 0 20px 8px #d0d0d0;
+
+    margin: 10px auto;
+}
+
+.content {
+    text-align: justify;
+    color: black;
+    padding: 40px;
+    font-family: 'Merriweather', serif;
+}
+
+h1 {
+    font-weight: 900;
+    text-align: center;
+}
+
