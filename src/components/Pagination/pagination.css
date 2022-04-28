@@ -1,0 +1,19 @@
+.Pagination {
+ margin: 0 auto;
+    display: flex;
+}
+
+.button {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+}
+
+.button.active {
+    background-color: #4CAF50;
+    color: white;
+}
+.button:hover:not(.active) {background-color: #ddd;}
