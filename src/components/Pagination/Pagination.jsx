@@ -15,6 +15,7 @@ const Pagination = ({setCurrentPosts, posts}) => {
     const lastPostId = page * pageLimit;
     const firstPostId = lastPostId - pageLimit;
     setCurrentPosts(posts.slice(firstPostId, lastPostId));
+    // eslint-disable-next-line
   }, [page, posts])
 
   const handlePageChange = (page) => setPage(page)

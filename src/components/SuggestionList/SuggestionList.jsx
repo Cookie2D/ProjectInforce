@@ -20,6 +20,7 @@ const SuggestionList = ({posts}) => {
     }
 
     setSuggestions(suggestions)
+    // eslint-disable-next-line
   }, [searchInput])
 
   function suggest(e) {
