@@ -1,15 +1,30 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
+import {inputContext} from "../../context/inputContext";
 import './searchBar.css'
 
 const SearchBar = ({posts, setPosts}) => {
-  const [input, setInput] = useState('');
+  const {setSearchInput, searchInput, setFocused} = useContext(inputContext)
 
   function search(e) {
-    e.preventDefault()
+    e.preventDefault();
     const searchedPosts = posts.filter(post => {
-      return post.title.includes(input)
+      return post.title.includes(searchInput) //|| post.body.includes(input)
     })
+
     setPosts(searchedPosts);
+    setSearchInput('');
+  }
+
+  function inputChanges(e) {
+    const input = e.target.value;
+    setSearchInput(input)
+  }
+
+  const onFocus = () => setFocused(true)
+  const onBlur = () => {
+    setTimeout(() => {
+      setFocused(false)
+    }, 100)
   }
 
   return (
@@ -19,15 +34,18 @@ const SearchBar = ({posts, setPosts}) => {
           type="text"
           className="searchTerm"
           placeholder="Search..."
-          value={input}
-          onChange={(e) => {setInput(e.target.value)}}
+          value={searchInput}
+          onChange={inputChanges}
+          onFocus={onFocus}
+          onBlur={onBlur}
         />
-          <button type="submit" className="searchButton">
-            Go
-          </button>
+        <button type="submit" className="searchButton">
+          Go
+        </button>
       </div>
     </form>
-  );
+  )
+    ;
 };
 
 export default SearchBar;
