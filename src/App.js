@@ -5,10 +5,12 @@ import Card from "./components/Card/Card";
 
 import './components/Pagination/pagination.css'
 import Pagination from "./components/Pagination/Pagination";
+import SearchBar from "./components/SearchBar/SearchBar";
 
 function App() {
   const dataURL = 'https://jsonplaceholder.typicode.com'
 
+  const [data, setData] = useState({});
   const [posts, setPosts] = useState([]);
   const [currentPosts, setCurrentPosts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -17,8 +19,9 @@ function App() {
     setLoading(true);
     axios.get(`${dataURL}/posts`)
       .then(res => {
-        setPosts(res.data)
-        setLoading(false)
+        setData(res);
+        setPosts(res.data);
+        setLoading(false);
       })
   }, [])
 
@@ -28,12 +31,21 @@ function App() {
 
   return (
     <div className="App">
-      {currentPosts.map((card) => <Card card={card} key={card.id}/>)}
+      <SearchBar posts={data.data} setPosts={setPosts}/>
 
-      <Pagination
-        setCurrentPosts={setCurrentPosts}
-        posts={posts}
-      />
+      {Object.keys(posts).length === 0
+        ? <h1>Zero post found...</h1>
+        : <>
+          <div className="card-list">
+            {currentPosts.map((card) => <Card card={card} key={card.id}/>)}
+          </div>
+
+          <Pagination
+            setCurrentPosts={setCurrentPosts}
+            posts={posts}
+          />
+        </>
+      }
     </div>
   );
 }
