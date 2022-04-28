@@ -1,4 +1,4 @@
-import React, {useEffect, useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import './suggestionList.css';
 import {inputContext} from "../../context/inputContext";
 
@@ -12,7 +12,7 @@ const SuggestionList = ({posts}) => {
     let suggestions = [];
 
     for (let i = 0; i < suggestionsLength && i < posts.length; i++) {
-      const startIndex = posts[i].title.indexOf(searchInput)
+      const startIndex = posts[i].title.indexOf(searchInput);
       if (startIndex >= 0 && searchInput) {
         let candidate = posts[i].title.slice(startIndex);
         suggestions.push(candidate);

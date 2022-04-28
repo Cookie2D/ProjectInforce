@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './pagination.css';
 
 const Pagination = ({setCurrentPosts, posts}) => {
-  const pages = []
+  const pages = [];
   const pageLimit = 10;
 
   const [page, setPage] = useState(1);
@@ -34,15 +34,15 @@ const Pagination = ({setCurrentPosts, posts}) => {
     <nav className="Pagination">
       <button onClick={() => decrementPage()} className="button">{"<"}</button>
       <div>
-      {pages.map(num =>(
-        <button
-          onClick={() => handlePageChange(num)}
-          key={num}
-          className={page === num? "button active" : "button"}
-        >
-          {num}
-        </button>)
-      )}
+        {pages.map(num => (
+          <button
+            onClick={() => handlePageChange(num)}
+            key={num}
+            className={page === num ? "button active" : "button"}
+          >
+            {num}
+          </button>)
+        )}
       </div>
       <button onClick={() => incrementPage()} className="button">{">"}</button>
     </nav>

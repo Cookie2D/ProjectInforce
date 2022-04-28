@@ -1,5 +1,5 @@
 .Pagination {
- margin: 0 auto;
+    margin: 0 auto;
     display: flex;
 }
 
@@ -16,4 +16,7 @@
     background-color: #4CAF50;
     color: white;
 }
-.button:hover:not(.active) {background-color: #ddd;}
+
+.button:hover:not(.active) {
+    background-color: #ddd;
+}

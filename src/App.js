@@ -39,7 +39,7 @@ function App() {
         setSearchInput, searchInput, focused, setFocused
       }}>
         <SearchBar posts={data.data} setPosts={setPosts}/>
-        <SuggestionList posts={posts} />
+        <SuggestionList posts={posts}/>
       </inputContext.Provider>
 
       {Object.keys(posts).length === 0
